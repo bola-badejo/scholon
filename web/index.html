@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <base href="$FLUTTER_BASE_HREF">
+
+  <meta charset="UTF-8">
+  <meta content="IE=Edge" http-equiv="X-UA-Compatible">
+  <meta name="description" content="School turned on.">
+
+  <!-- iOS meta tags & icons -->
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="apple-mobile-web-app-title" content="Scholon">
+  <link rel="apple-touch-icon" href="icons/Icon-192.png">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="favicon.png">
+
+  <title>Scholon</title>
+  <link rel="manifest" href="manifest.json">
+  <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport">
+
+  <!-- Splash Screen Styles -->
+  <style id="splash-screen-style">
+    html {
+      height: 100%
+    }
+
+    body {
+      margin: 0;
+      min-height: 100%;
+      background-color: #0263B3;
+      background-size: 100% 100%;
+    }
+
+    .center {
+      margin: 0;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      -ms-transform: translate(-50%, -50%);
+      transform: translate(-50%, -50%);
+    }
+
+    .contain {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+
+    .stretch {
+      display: block;
+      width: 100%;
+      height: 100%;
+    }
+
+    .cover {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .bottom {
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      -ms-transform: translate(-50%, 0);
+      transform: translate(-50%, 0);
+    }
+
+    .bottomLeft {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+    }
+
+    .bottomRight {
+      position: absolute;
+      bottom: 0;
+      right: 0;
+    }
+
+    /* Loading Spinner Styles */
+    .loading-container {
+      position: absolute;
+      bottom: 120px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .spinner {
+      width: 32px;
+      height: 32px;
+      border: 3px solid rgba(255, 255, 255, 0.3);
+      border-top: 3px solid #ffffff;
+      border-radius: 50%;
+      animation: spin 0.8s linear infinite;
+    }
+
+    @keyframes spin {
+      0% {
+        transform: rotate(0deg);
+      }
+
+      100% {
+        transform: rotate(360deg);
+      }
+    }
+
+    .loading-text {
+      color: rgba(255, 255, 255, 0.8);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      font-size: 13px;
+      font-weight: 400;
+      letter-spacing: 0.3px;
+      text-align: center;
+    }
+
+    /* Pulse animation for loading text */
+    @keyframes pulse {
+
+      0%,
+      100% {
+        opacity: 0.6;
+      }
+
+      50% {
+        opacity: 1;
+      }
+    }
+
+    .loading-text {
+      animation: pulse 1.8s ease-in-out infinite;
+    }
+  </style>
+
+  <!-- Splash Screen Script -->
+  <script id="splash-screen-script">
+    function removeSplashFromWeb() {
+      document.getElementById("splash")?.remove();
+      document.getElementById("splash-branding")?.remove();
+      document.getElementById("loading-spinner")?.remove();
+      document.body.style.background = "transparent";
+    }
+  </script>
+</head>
+
+<body>
+  <!-- Splash Screen Branding -->
+  <picture id="splash-branding">
+    <source
+      srcset="splash/img/branding-1x.png 1x, splash/img/branding-2x.png 2x, splash/img/branding-3x.png 3x, splash/img/branding-4x.png 4x"
+      media="(prefers-color-scheme: light)">
+    <source
+      srcset="splash/img/branding-dark-1x.png 1x, splash/img/branding-dark-2x.png 2x, splash/img/branding-dark-3x.png 3x, splash/img/branding-dark-4x.png 4x"
+      media="(prefers-color-scheme: dark)">
+    <img class="center" aria-hidden="true" src="splash/img/branding-1x.png" alt="">
+  </picture>
+
+  <!-- Loading Spinner -->
+  <div id="loading-spinner" class="loading-container">
+    <div class="spinner"></div>
+    <div class="loading-text">Loading your experience...</div>
+  </div>
+
+  <!-- Service Worker & Notifications -->
+  <script>
+    // Service Worker Registration for PWA
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('/flutter_service_worker.js')
+          .then(registration => {
+            console.log('ServiceWorker registered: ', registration);
+          })
+          .catch(registrationError => {
+            console.log('ServiceWorker registration failed: ', registrationError);
+          });
+      });
+    }
+
+    // Check Notification Support
+    if ('Notification' in window) {
+      console.log('Notifications are supported!');
+
+      if (Notification.permission === 'default') {
+        console.log('Notification permission not yet requested');
+      }
+    } else {
+      console.warn('This browser does not support notifications');
+    }
+  </script>
+
+  <script>
+    // Pre-load voices for better experience
+    if ('speechSynthesis' in window) {
+      // Load voices immediately
+      window.speechSynthesis.getVoices();
+
+      // Some browsers load voices asynchronously
+      if (window.speechSynthesis.onvoiceschanged !== undefined) {
+        window.speechSynthesis.onvoiceschanged = function () {
+          window.speechSynthesis.getVoices();
+        };
+      }
+
+      // Prevent speech from stopping on page visibility change
+      document.addEventListener('visibilitychange', function () {
+        // Keep speech going even if tab loses focus
+      });
+
+      // Warm up the speech engine
+      setTimeout(function () {
+        var warmUp = new SpeechSynthesisUtterance('');
+        warmUp.volume = 0;
+        warmUp.rate = 1;
+        window.speechSynthesis.speak(warmUp);
+      }, 100);
+    }
+  </script>
+  <script>
+    document.addEventListener('click', function unlockSpeech() {
+      var utterance = new SpeechSynthesisUtterance('');
+      utterance.volume = 0;
+      window.speechSynthesis.speak(utterance);
+      document.removeEventListener('click', unlockSpeech);
+    }, { once: true });
+
+    document.addEventListener('touchstart', function unlockSpeechTouch() {
+      var utterance = new SpeechSynthesisUtterance('');
+      utterance.volume = 0;
+      window.speechSynthesis.speak(utterance);
+      document.removeEventListener('touchstart', unlockSpeechTouch);
+    }, { once: true });
+  </script>
+
+  <!-- Flutter Bootstrap -->
+  <script src="flutter_bootstrap.js" async></script>
+</body>
+
+</html>

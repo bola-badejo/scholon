@@ -1,0 +1,10 @@
+flutter_native_splash:
+  # Background color (use blue accent)
+  color: "0263B3"
+  
+  # Image configuration
+  # image: assets/images/logo.PNG
+  
+  # Branding (optional)
+  branding: assets/images/power.PNG
+  branding_mode: center

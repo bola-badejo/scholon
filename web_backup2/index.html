@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <base href="$FLUTTER_BASE_HREF">
+
+  <meta charset="UTF-8">
+  <meta content="IE=Edge" http-equiv="X-UA-Compatible">
+  <meta name="description" content="School turned on.">
+
+  <!-- iOS meta tags & icons -->
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="apple-mobile-web-app-title" content="Scholon">
+  <link rel="apple-touch-icon" href="icons/Icon-192.png">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="favicon.png">
+  
+  <title>Scholon</title>
+  <link rel="manifest" href="manifest.json">
+  <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport">
+
+  <!-- Splash Screen Styles -->
+  <style id="splash-screen-style">
+    html {
+      height: 100%
+    }
+
+    body {
+      margin: 0;
+      min-height: 100%;
+      background-color: #0263B3;
+      background-size: 100% 100%;
+    }
+
+    .center {
+      margin: 0;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      -ms-transform: translate(-50%, -50%);
+      transform: translate(-50%, -50%);
+    }
+
+    .contain {
+      display:block;
+      width:100%; height:100%;
+      object-fit: contain;
+    }
+
+    .stretch {
+      display:block;
+      width:100%; height:100%;
+    }
+
+    .cover {
+      display:block;
+      width:100%; height:100%;
+      object-fit: cover;
+    }
+
+    .bottom {
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      -ms-transform: translate(-50%, 0);
+      transform: translate(-50%, 0);
+    }
+
+    .bottomLeft {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+    }
+
+    .bottomRight {
+      position: absolute;
+      bottom: 0;
+      right: 0;
+    }
+
+    /* Loading Container */
+    .loading-container {
+      position: absolute;
+      bottom: 140px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 220px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+    }
+
+    /* Progress Bar Container */
+    .progress-bar-container {
+      width: 100%;
+      height: 4px;
+      background-color: rgba(255, 255, 255, 0.2);
+      border-radius: 2px;
+      overflow: hidden;
+    }
+
+    /* Progress Bar Fill */
+    .progress-bar-fill {
+      height: 100%;
+      width: 0%;
+      background-color: #ffffff;
+      border-radius: 2px;
+      transition: width 0.3s ease-in-out;
+    }
+
+    /* Percentage Text */
+    .progress-percentage {
+      color: rgba(255, 255, 255, 0.9);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: 0.5px;
+      text-align: center;
+      min-width: 40px;
+    }
+
+    /* Loading Text */
+    .loading-text {
+      color: rgba(255, 255, 255, 0.7);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      font-size: 13px;
+      font-weight: 400;
+      letter-spacing: 0.3px;
+      text-align: center;
+      transition: opacity 0.4s ease-in-out;
+    }
+
+    /* Fade animation for text transitions */
+    .fade-out {
+      opacity: 0;
+    }
+
+    .fade-in {
+      opacity: 1;
+    }
+  </style>
+
+  <!-- Splash Screen Script -->
+  <script id="splash-screen-script">
+    function removeSplashFromWeb() {
+      document.getElementById("splash")?.remove();
+      document.getElementById("splash-branding")?.remove();
+      document.getElementById("loading-container")?.remove();
+      document.body.style.background = "transparent";
+    }
+  </script>
+</head>
+<body>
+  <!-- Splash Screen Branding -->
+  <picture id="splash-branding">
+    <source srcset="splash/img/branding-1x.png 1x, splash/img/branding-2x.png 2x, splash/img/branding-3x.png 3x, splash/img/branding-4x.png 4x" media="(prefers-color-scheme: light)">
+    <source srcset="splash/img/branding-dark-1x.png 1x, splash/img/branding-dark-2x.png 2x, splash/img/branding-dark-3x.png 3x, splash/img/branding-dark-4x.png 4x" media="(prefers-color-scheme: dark)">
+    <img class="center" aria-hidden="true" src="splash/img/branding-1x.png" alt="">
+  </picture>
+
+  <!-- Loading Progress -->
+  <div id="loading-container" class="loading-container">
+    <div class="progress-bar-container">
+      <div id="progress-bar-fill" class="progress-bar-fill"></div>
+    </div>
+    <div style="display: flex; align-items: center; gap: 8px;">
+      <span id="progress-percentage" class="progress-percentage">0%</span>
+      <span id="loading-text" class="loading-text">Loading your experience...</span>
+    </div>
+  </div>
+
+  <!-- Loading Progress Script - Tracks actual loading -->
+  <script>
+    (function() {
+      const progressBar = document.getElementById('progress-bar-fill');
+      const percentageText = document.getElementById('progress-percentage');
+      const loadingText = document.getElementById('loading-text');
+      
+      const messages = [
+        'Loading your experience...',
+        'Preparing your school...',
+        'Getting things ready...',
+        'Almost there...'
+      ];
+      
+      let currentMessageIndex = 0;
+      let loadStartTime = Date.now();
+      let maxObservedLoadTime = 8000; // Start with 8s estimate, will adjust
+      let hasCompleted = false;
+      
+      function updateProgress(percentage) {
+        if (hasCompleted) return;
+        
+        const clampedPercentage = Math.min(Math.round(percentage), 99);
+        
+        // Update progress bar
+        progressBar.style.width = clampedPercentage + '%';
+        percentageText.textContent = clampedPercentage + '%';
+        
+        // Update text based on progress
+        const messageIndex = Math.min(
+          Math.floor(clampedPercentage / 25),
+          messages.length - 1
+        );
+        
+        if (messageIndex !== currentMessageIndex) {
+          currentMessageIndex = messageIndex;
+          loadingText.classList.add('fade-out');
+          setTimeout(() => {
+            loadingText.textContent = messages[messageIndex];
+            loadingText.classList.remove('fade-out');
+            loadingText.classList.add('fade-in');
+            setTimeout(() => {
+              loadingText.classList.remove('fade-in');
+            }, 400);
+          }, 300);
+        }
+      }
+      
+      function completeLoading() {
+        if (hasCompleted) return;
+        hasCompleted = true;
+        
+        progressBar.style.width = '100%';
+        percentageText.textContent = '100%';
+        
+        setTimeout(() => {
+          removeSplashFromWeb();
+        }, 400);
+      }
+      
+      // Listen for Flutter's actual loading events
+      window.addEventListener('flutter-first-frame', () => {
+        completeLoading();
+      });
+      
+      // Track script loading progress
+      const flutterScript = document.querySelector('script[src="flutter_bootstrap.js"]');
+      
+      // Monitor resource loading using Performance API
+      function checkResourceProgress() {
+        if (hasCompleted) return;
+        
+        const resources = performance.getEntriesByType('resource');
+        const flutterEntry = resources.find(r => r.name.includes('flutter'));
+        
+        if (flutterEntry) {
+          const transferSize = flutterEntry.transferSize || 0;
+          const encodedBodySize = flutterEntry.encodedBodySize || 0;
+          
+          if (transferSize > 0 && encodedBodySize > 0) {
+            // We know the file size, calculate actual progress
+            const downloadProgress = (transferSize / encodedBodySize) * 100;
+            
+            // Map download progress to overall progress (0-80% range for download)
+            const mappedProgress = downloadProgress * 0.8;
+            updateProgress(mappedProgress);
+            
+            // Adjust max load time based on actual download speed
+            if (downloadProgress > 0) {
+              const elapsedTime = Date.now() - loadStartTime;
+              const estimatedTotal = (elapsedTime / downloadProgress) * 100;
+              maxObservedLoadTime = Math.max(maxObservedLoadTime, estimatedTotal);
+            }
+          }
+        }
+        
+        // Fallback: Use time-based progress with adaptive max time
+        const elapsedTime = Date.now() - loadStartTime;
+        const timeBasedProgress = (elapsedTime / maxObservedLoadTime) * 90;
+        
+        // Check if we have resource progress, otherwise use time-based
+        const hasResourceData = performance.getEntriesByType('resource')
+          .some(r => r.name.includes('flutter') && r.transferSize > 0);
+        
+        if (!hasResourceData) {
+          updateProgress(timeBasedProgress);
+        }
+        
+        // Continue checking
+        if (!hasCompleted) {
+          requestAnimationFrame(checkResourceProgress);
+        }
+      }
+      
+      // Start monitoring
+      loadStartTime = Date.now();
+      updateProgress(0);
+      requestAnimationFrame(checkResourceProgress);
+      
+      // Safety timeout: Complete after 30 seconds max
+      setTimeout(() => {
+        if (!hasCompleted) {
+          completeLoading();
+        }
+      }, 30000);
+      
+      // Also listen for window load as backup
+      window.addEventListener('load', () => {
+        if (!hasCompleted) {
+          updateProgress(85);
+        }
+      });
+    })();
+  </script>
+
+  <!-- Service Worker & Notifications -->
+  <script>
+    // Service Worker Registration for PWA
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('/flutter_service_worker.js')
+          .then(registration => {
+            console.log('ServiceWorker registered: ', registration);
+          })
+          .catch(registrationError => {
+            console.log('ServiceWorker registration failed: ', registrationError);
+          });
+      });
+    }
+    
+    // Check Notification Support
+    if ('Notification' in window) {
+      console.log('Notifications are supported!');
+      
+      if (Notification.permission === 'default') {
+        console.log('Notification permission not yet requested');
+      }
+    } else {
+      console.warn('This browser does not support notifications');
+    }
+  </script>
+
+  <!-- Flutter Bootstrap -->
+  <script src="flutter_bootstrap.js" async></script>
+</body>
+</html>

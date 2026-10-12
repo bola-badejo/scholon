@@ -1,0 +1,7 @@
+flutter_launcher_icons:
+  android: true
+  ios: true
+  image_path: "assets/images/power.PNG"
+  
+  adaptive_icon_background: "#0263B3"
+  adaptive_icon_background_color: "0263B3"

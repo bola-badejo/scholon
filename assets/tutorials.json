@@ -1,0 +1,282 @@
+[
+  {
+    "id": "1",
+    "title": "Introduction to Algebra",
+    "description": "Learn the fundamentals of algebra including variables and expressions.",
+    "thumbnail": "https://img.youtube.com/vi/IjZbykFl0Ks/0.jpg",
+    "videoUrl": "https://www.youtube.com/watch?v=IjZbykFl0Ks"
+  },
+  {
+    "id": "2",
+    "title": "Solving One Step Equations",
+    "description": "Understand how to solve simple algebraic equations step by step.",
+    "thumbnail": "https://img.youtube.com/vi/AX4bH3gE8r8/0.jpg",
+    "videoUrl": "https://www.youtube.com/watch?v=AX4bH3gE8r8"
+  },
+  {
+    "id": "3",
+    "title": "Solving Two Step Equations",
+    "description": "Learn how to solve algebra equations involving two operations.",
+    "thumbnail": "https://img.youtube.com/vi/2V9x0y6s8fY/0.jpg",
+    "videoUrl": "https://www.youtube.com/watch?v=2V9x0y6s8fY"
+  },
+  {
+    "id": "4",
+    "title": "Understanding Fractions",
+    "description": "A beginner friendly explanation of fractions and how they work.",
+    "thumbnail": "https://img.youtube.com/vi/PZ8k3k6M9uE/0.jpg",
+    "videoUrl": "https://www.youtube.com/watch?v=PZ8k3k6M9uE"
+  },
+  {
+    "id": "5",
+    "title": "Equivalent Fractions Explained",
+    "description": "Learn how different fractions can represent the same value.",
+    "thumbnail": "https://img.youtube.com/vi/lQ7XgH7J0cA/0.jpg",
+    "videoUrl": "https://www.youtube.com/watch?v=lQ7XgH7J0cA"
+  },
+  {
+    "id": "6",
+    "title": "Order of Operations (PEMDAS)",
+    "description": "Master the correct order for solving mathematical expressions.",
+    "thumbnail": "https://img.youtube.com/vi/dAgfnK528RA/0.jpg",
+    "videoUrl": "https://www.youtube.com/watch?v=dAgfnK528RA"
+  },
+  {
+    "id": "7",
+    "title": "Linear Equations Explained",
+    "description": "Understand linear equations and how to solve them easily.",
+    "thumbnail": "https://img.youtube.com/vi/3h3p5k6zXlE/0.jpg",
+    "videoUrl": "https://www.youtube.com/watch?v=3h3p5k6zXlE"
+  },
+  {
+    "id": "8",
+    "title": "Graphing Linear Equations",
+    "description": "Learn how to graph equations on a coordinate plane.",
+    "thumbnail": "https://img.youtube.com/vi/kN7YQ3q1Y3Q/0.jpg",
+    "videoUrl": "https://www.youtube.com/watch?v=kN7YQ3q1Y3Q"
+  },
+  {
+    "id": "9",
+    "title": "Introduction to Functions",
+    "description": "Understand mathematical functions and how they relate variables.",
+    "thumbnail": "https://img.youtube.com/vi/kvGsIo1TmsM/0.jpg",
+    "videoUrl": "https://www.youtube.com/watch?v=kvGsIo1TmsM"
+  },
+  {
+    "id": "10",
+    "title": "Systems of Equations",
+    "description": "Learn how to solve equations with multiple variables.",
+    "thumbnail": "https://img.youtube.com/vi/5Nf0Y2Xv5pE/0.jpg",
+    "videoUrl": "https://www.youtube.com/watch?v=5Nf0Y2Xv5pE"
+  },
+  {
+    "id": "11",
+    "title": "What is Algebra?",
+    "description": "Introduction to algebraic thinking and variables.",
+    "thumbnail": "https://img.youtube.com/vi/NybHckSEQBI/0.jpg",
+    "videoUrl": "https://www.youtube.com/watch?v=NybHckSEQBI"
+  },
+  {
+    "id": "12",
+    "title": "Basic Algebra Practice",
+    "description": "Solving simple algebra problems step by step.",
+    "thumbnail": "https://img.youtube.com/vi/2RrreVthcF8/0.jpg",
+    "videoUrl": "https://www.youtube.com/watch?v=2RrreVthcF8"
+  },
+  {
+    "id": "13",
+    "title": "Understanding Variables",
+    "description": "Learn how variables represent unknown values.",
+    "thumbnail": "https://img.youtube.com/vi/ZC0Gk6dXgkE/0.jpg",
+    "videoUrl": "https://www.youtube.com/watch?v=ZC0Gk6dXgkE"
+  },
+  {
+    "id": "14",
+    "title": "Solving Linear Equations",
+    "description": "Step by step explanation of solving linear equations.",
+    "thumbnail": "https://img.youtube.com/vi/3F0hXUe3H5k/0.jpg",
+    "videoUrl": "https://www.youtube.com/watch?v=3F0hXUe3H5k"
+  },
+  {
+    "id": "15",
+    "title": "Graphing Linear Equations",
+    "description": "Understanding how equations translate to graphs.",
+    "thumbnail": "https://img.youtube.com/vi/YZC4x4pK1WQ/0.jpg",
+    "videoUrl": "https://www.youtube.com/watch?v=YZC4x4pK1WQ"
+  },
+  {
+    "id": "16",
+    "title": "Understanding Fractions",
+    "description": "A beginner's guide to fractions.",
+    "thumbnail": "https://img.youtube.com/vi/3X8t1C3TgA0/0.jpg",
+    "videoUrl": "https://www.youtube.com/watch?v=3X8t1C3TgA0"
+  },
+  {
+    "id": "17",
+    "title": "Adding Fractions",
+    "description": "Step by step guide to adding fractions.",
+    "thumbnail": "https://img.youtube.com/vi/cfZJj0m5K0E/0.jpg",
+    "videoUrl": "https://www.youtube.com/watch?v=cfZJj0m5K0E"
+  },
+  {
+    "id": "18",
+    "title": "Subtracting Fractions",
+    "description": "Learn how to subtract fractions easily.",
+    "thumbnail": "https://img.youtube.com/vi/TM9vQXb8O4o/0.jpg",
+    "videoUrl": "https://www.youtube.com/watch?v=TM9vQXb8O4o"
+  },
+  {
+    "id": "19",
+    "title": "Multiplying Fractions",
+    "description": "Understanding fraction multiplication.",
+    "thumbnail": "https://img.youtube.com/vi/WxK9eK5y0M8/0.jpg",
+    "videoUrl": "https://www.youtube.com/watch?v=WxK9eK5y0M8"
+  },
+  {
+    "id": "20",
+    "title": "Dividing Fractions",
+    "description": "Learn the flip and multiply rule.",
+    "thumbnail": "https://img.youtube.com/vi/DPVgE0Ck8fA/0.jpg",
+    "videoUrl": "https://www.youtube.com/watch?v=DPVgE0Ck8fA"
+  },
+  {
+    "id": "21",
+    "title": "Order of Operations",
+    "description": "PEMDAS explained clearly.",
+    "thumbnail": "https://img.youtube.com/vi/dAgfnK528RA/0.jpg",
+    "videoUrl": "https://www.youtube.com/watch?v=dAgfnK528RA"
+  },
+  {
+    "id": "22",
+    "title": "Understanding Ratios",
+    "description": "How ratios compare quantities.",
+    "thumbnail": "https://img.youtube.com/vi/KjQk244oW9c/0.jpg",
+    "videoUrl": "https://www.youtube.com/watch?v=KjQk244oW9c"
+  },
+  {
+    "id": "23",
+    "title": "Ratios and Proportions",
+    "description": "Using proportions to solve problems.",
+    "thumbnail": "https://img.youtube.com/vi/oC0kW9B3R8k/0.jpg",
+    "videoUrl": "https://www.youtube.com/watch?v=oC0kW9B3R8k"
+  },
+  {
+    "id": "24",
+    "title": "Introduction to Percentages",
+    "description": "Understanding percentages in everyday life.",
+    "thumbnail": "https://img.youtube.com/vi/Q8Lk9c7E2A8/0.jpg",
+    "videoUrl": "https://www.youtube.com/watch?v=Q8Lk9c7E2A8"
+  },
+  {
+    "id": "25",
+    "title": "Converting Fractions to Percentages",
+    "description": "Learn how to convert fractions to percentages.",
+    "thumbnail": "https://img.youtube.com/vi/kGqvQnY9kK8/0.jpg",
+    "videoUrl": "https://www.youtube.com/watch?v=kGqvQnY9kK8"
+  },
+  {
+    "id": "26",
+    "title": "Introduction to Geometry",
+    "description": "Basic geometric shapes and properties.",
+    "thumbnail": "https://img.youtube.com/vi/302eJ3TzJQU/0.jpg",
+    "videoUrl": "https://www.youtube.com/watch?v=302eJ3TzJQU"
+  },
+  {
+    "id": "27",
+    "title": "Triangles Explained",
+    "description": "Understanding different types of triangles.",
+    "thumbnail": "https://img.youtube.com/vi/YkEJ5u0xE2g/0.jpg",
+    "videoUrl": "https://www.youtube.com/watch?v=YkEJ5u0xE2g"
+  },
+  {
+    "id": "28",
+    "title": "Area of Shapes",
+    "description": "Learn how to calculate area of common shapes.",
+    "thumbnail": "https://img.youtube.com/vi/TW9yYy4k4jY/0.jpg",
+    "videoUrl": "https://www.youtube.com/watch?v=TW9yYy4k4jY"
+  },
+  {
+    "id": "29",
+    "title": "Perimeter Explained",
+    "description": "Understanding perimeter with examples.",
+    "thumbnail": "https://img.youtube.com/vi/3U8h0Hk4Q3A/0.jpg",
+    "videoUrl": "https://www.youtube.com/watch?v=3U8h0Hk4Q3A"
+  },
+  {
+    "id": "30",
+    "title": "Volume of 3D Shapes",
+    "description": "Calculating volume of cubes and prisms.",
+    "thumbnail": "https://img.youtube.com/vi/B9p2J7s5F9A/0.jpg",
+    "videoUrl": "https://www.youtube.com/watch?v=B9p2J7s5F9A"
+  },
+  {
+    "id": "31",
+    "title": "Introduction to Statistics",
+    "description": "Understanding data and graphs.",
+    "thumbnail": "https://img.youtube.com/vi/xxpc-HPKN28/0.jpg",
+    "videoUrl": "https://www.youtube.com/watch?v=xxpc-HPKN28"
+  },
+  {
+    "id": "32",
+    "title": "Mean Median Mode",
+    "description": "Measures of central tendency explained.",
+    "thumbnail": "https://img.youtube.com/vi/6b2JvQ2F7N8/0.jpg",
+    "videoUrl": "https://www.youtube.com/watch?v=6b2JvQ2F7N8"
+  },
+  {
+    "id": "33",
+    "title": "Probability Basics",
+    "description": "Understanding probability in simple terms.",
+    "thumbnail": "https://img.youtube.com/vi/KzfWUEJjG18/0.jpg",
+    "videoUrl": "https://www.youtube.com/watch?v=KzfWUEJjG18"
+  },
+  {
+    "id": "34",
+    "title": "Exponents Explained",
+    "description": "Understanding powers and exponents.",
+    "thumbnail": "https://img.youtube.com/vi/XZRQhkii0h0/0.jpg",
+    "videoUrl": "https://www.youtube.com/watch?v=XZRQhkii0h0"
+  },
+  {
+    "id": "35",
+    "title": "Square Roots Basics",
+    "description": "Introduction to square roots.",
+    "thumbnail": "https://img.youtube.com/vi/9Rsk0pE0a1E/0.jpg",
+    "videoUrl": "https://www.youtube.com/watch?v=9Rsk0pE0a1E"
+  },
+  {
+    "id": "36",
+    "title": "Introduction to Functions",
+    "description": "Understanding mathematical functions.",
+    "thumbnail": "https://img.youtube.com/vi/kvGsIo1TmsM/0.jpg",
+    "videoUrl": "https://www.youtube.com/watch?v=kvGsIo1TmsM"
+  },
+  {
+    "id": "37",
+    "title": "Domain and Range",
+    "description": "Understanding domain and range of functions.",
+    "thumbnail": "https://img.youtube.com/vi/bOXCLR3Wric/0.jpg",
+    "videoUrl": "https://www.youtube.com/watch?v=bOXCLR3Wric"
+  },
+  {
+    "id": "38",
+    "title": "Graphing Functions",
+    "description": "Plotting functions on a graph.",
+    "thumbnail": "https://img.youtube.com/vi/TgKwz5Ikpc8/0.jpg",
+    "videoUrl": "https://www.youtube.com/watch?v=TgKwz5Ikpc8"
+  },
+  {
+    "id": "39",
+    "title": "Introduction to Logarithms",
+    "description": "Understanding logarithmic functions.",
+    "thumbnail": "https://img.youtube.com/vi/cEvgcoyZvB4/0.jpg",
+    "videoUrl": "https://www.youtube.com/watch?v=cEvgcoyZvB4"
+  },
+  {
+    "id": "40",
+    "title": "Solving Quadratic Equations",
+    "description": "Methods for solving quadratic equations.",
+    "thumbnail": "https://img.youtube.com/vi/IlNAJl36-10/0.jpg",
+    "videoUrl": "https://www.youtube.com/watch?v=IlNAJl36-10"
+  }
+]
