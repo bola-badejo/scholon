@@ -1,0 +1,20 @@
+/// Public surface of the study guide module.
+export 'bindings/study_guide_binding.dart';
+export 'controllers/study_guide_controller.dart';
+export 'engine/plan_builder.dart';
+export 'engine/spaced_repetition.dart';
+export 'engine/xp_system.dart';
+export 'models/activity_type.dart';
+export 'models/curriculum_content_item.dart';
+export 'models/daily_activity.dart';
+export 'models/learning_profile.dart';
+export 'models/mastery_record.dart';
+export 'models/plan_item.dart';
+export 'models/student_progress.dart';
+export 'models/study_schedule.dart';
+export 'models/study_topic.dart';
+export 'screens/study_guide_screen.dart';
+export 'screens/study_planner_screen.dart';
+export 'services/scholon_activity_planner.dart';
+export 'services/study_guide_repository.dart';
+export 'services/study_planner_firebase_service.dart';
