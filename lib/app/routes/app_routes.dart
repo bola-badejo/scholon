@@ -29,6 +29,9 @@ import 'package:isapp/features/onboarding/screens/splash_screen.dart';
 import 'package:isapp/features/onboarding/screens/sponsors_screen.dart';
 import 'package:isapp/features/policy/screens/policy.dart';
 import 'package:isapp/features/profile/screens/profile_page.dart';
+import 'package:isapp/features/library/screens/library_screen.dart';
+import 'package:isapp/features/ai_tutor/screens/ai_tutor_screen.dart';
+import 'package:isapp/features/dashboard/screens/scholon_dashboard_screen.dart';
 import 'package:isapp/features/study_guide/study_guide.dart';
 import 'package:isapp/features/teachly/bindings/learning_center_binding.dart';
 import 'package:isapp/features/teachly/screens/learning_center_screen.dart';
@@ -56,6 +59,9 @@ class AppRoutes {
       page: () => const ForgotPasswordScreen(),
     ),
     GetPage(name: '/activities', page: () => const StudyPlannerScreen()),
+    GetPage(name: '/library', page: () => const LibraryScreen()),
+    GetPage(name: '/ai-tutor', page: () => const AiTutorScreen()),
+    GetPage(name: '/dashboard', page: () => const ScholonDashboardScreen()),
     GetPage(
       name: '/study-guide',
       page: () => const StudyGuideScreen(),

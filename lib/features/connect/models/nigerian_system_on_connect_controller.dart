@@ -8,7 +8,7 @@ import 'package:isapp/features/connect/models/connection_result.dart';
 import 'package:isapp/features/connect/models/connection_type.dart';
 
 extension NigerianSystemOnConnectController on ConnectController {
-
+  // Update the getConnectedClassmates method for Nigerian system
   Future<List<Map<String, dynamic>>> getConnectedClassmatesNigerian() async {
     try {
       final userId = firebaseAuth.currentUser?.uid;

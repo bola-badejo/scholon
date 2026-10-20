@@ -16,6 +16,7 @@ import 'package:isapp/features/connect/models/study_group.dart';
 import 'package:isapp/features/connect/models/user_online_status.dart';
 import 'package:isapp/features/connect/models/validation_result.dart';
 
+// ========== ENHANCED CONNECTION CONTROLLER ==========
 class ConnectController extends GetxController {
   // Firebase instances
   final FirebaseFirestore firestoreDb = FirebaseFirestore.instance;

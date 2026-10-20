@@ -2,12 +2,15 @@ import 'dart:async';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
 import 'package:isapp/app/app.dart';
 import 'package:isapp/app/di/service_locator.dart';
 import 'package:isapp/app/firebase_error_app.dart';
 import 'package:isapp/core/firebase/firebase_config.dart';
+import 'package:isapp/features/connect/screens/connect_screen.dart';
+import 'package:isapp/features/kidling/controllers/home_controller.dart';
 import 'package:isapp/features/kidling/data/data.dart';
 import 'package:isapp/features/notifications/services/notifications_service.dart';
 

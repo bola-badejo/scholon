@@ -8,7 +8,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:intl/intl.dart';
-import 'package:isapp/features/auth/models/user.dart';
+import 'package:isapp/features/auth/models/user.dart';  // This should have BaseUser and UserType
 import 'package:isapp/features/affairs/models/affairs_model.dart';
 import 'package:isapp/features/school/screens/faculty.dart';
 

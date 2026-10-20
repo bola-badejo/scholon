@@ -2,7 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:get/get.dart';
 import 'package:isapp/core/theme/scholar_theme.dart';
+import 'package:isapp/features/ai_tutor/models/ai_models.dart';
+import 'package:isapp/features/ai_tutor/widgets/ask_scholon_button.dart';
 import 'package:isapp/features/learning/screens/activity_gateway.dart';
+import 'package:isapp/features/library/widgets/course_resources.dart';
 import 'package:isapp/features/study_guide/controllers/study_guide_controller.dart';
 import 'package:isapp/features/study_guide/models/plan_item.dart';
 import 'package:isapp/features/study_guide/widgets/focus_timer_card.dart';
@@ -24,6 +27,12 @@ class StudyGuideScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     if (!Get.isRegistered<StudyGuideController>()) Get.put(StudyGuideController());
     return Scaffold(
+      floatingActionButton: Obx(() {
+        final next = c.plan.firstWhereOrNull((i) => !c.doneIds.contains(i.id));
+        return AskScholonButton(
+          context: AiContext(screen: 'study-guide', courseCode: next?.topic.courseCode, courseName: next?.topic.subject, lessonTitle: next?.topic.title),
+        );
+      }),
       body: Container(
         decoration: const BoxDecoration(gradient: Scholar.backdrop),
         child: SafeArea(
@@ -46,6 +55,7 @@ class StudyGuideScreen extends StatelessWidget {
                   _section('Your week', WeeklyChart(c: c), delay: 150),
                   _section('Mastery map', MasteryMap(c: c), delay: 200),
                   _weakSpots(context),
+                  _libraryFor(),
                   _section('Plan settings', PlanSettingsCard(c: c), delay: 250),
                 ],
               ),
@@ -132,6 +142,15 @@ class StudyGuideScreen extends StatelessWidget {
         decoration: Scholar.glass(),
         child: Row(children: [Icon(icon, color: Colors.white38, size: 32), const SizedBox(width: 14), Expanded(child: Text(msg, style: Scholar.body()))]),
       );
+
+  /// Real Internet Archive suggestions for the subject the student needs most.
+  Widget _libraryFor() {
+    return Obx(() {
+      final subject = c.weakSpots.isNotEmpty ? c.weakSpots.first.subject : (c.plan.isNotEmpty ? c.plan.first.topic.subject : null);
+      if (subject == null) return const SizedBox();
+      return _section('Read more: $subject', CourseResourcesSection(key: ValueKey(subject), subject: subject), delay: 240);
+    });
+  }
 
   Widget _weakSpots(BuildContext context) {
     return Obx(() {

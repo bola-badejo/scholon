@@ -1,0 +1,16 @@
+# Reference layout. Image names and flags MUST be checked against the current
+# llama.cpp / vLLM documentation before use. Untested here.
+services:
+  model:
+    image: ghcr.io/ggml-org/llama.cpp:server   # verify image name
+    command: ["-m", "/models/${MODEL_FILE}", "--host", "0.0.0.0", "--port", "8000", "-c", "8192", "-np", "4"]
+    volumes: ["./models:/models:ro"]
+    # GPU: add the vendor-specific runtime/devices for your host
+  gateway:
+    build: .
+    environment:
+      FIREBASE_PROJECT_ID: istudyapp-de440
+      UPSTREAM_URL: http://model:8000
+      RATE_PER_MIN: "12"
+    ports: ["8080:8080"]
+    depends_on: [model]
